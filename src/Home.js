@@ -429,7 +429,7 @@ class Home extends React.Component {
       suggestions: []
     });
   };
-  on
+  on;
   render() {
     const { classes } = this.props;
     const { value, suggestions } = this.state;
@@ -441,6 +441,10 @@ class Home extends React.Component {
 
     return (
       <div>
+        <div id="herotext">
+          <h1>Best Drug Search💊😊</h1>
+          <h6>For Everyone...</h6>
+        </div>
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -451,16 +455,18 @@ class Home extends React.Component {
           inputProps={inputProps}
         />
         <div>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick
-          >
-            Go Nuts💊
-          </Button>
-          <div class="card">
-            <div class="container">
+          <Link to="/Druginfo">
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              onClick
+            >
+              Go Nuts💊
+            </Button>
+          </Link>
+          <div class="card1">
+            <div class="container1">
               <h4>
                 <b>Drug Information💊</b>
               </h4>

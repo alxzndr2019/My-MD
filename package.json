@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.0.0-alpha.7",
+    "@material-ui/icons": "^4.0.1",
     "autosuggest-highlight": "^3.1.1",
     "contentful": "^7.5.0",
     "downshift": "^3.2.7",

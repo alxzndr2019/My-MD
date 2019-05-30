@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
+
 class Navbar extends Component {
   render() {
     return (
       <div>
         <nav>
           {/*Logo*/}
-          <a href="#" id="logo" to="/">
-            My-MD
-          </a>
-
+          <Link to="/">
+            <a href="#" id="logo" to="/">
+              My-MD
+            </a>
+          </Link>
           {/* The Links*/}
           <ul>
             <li>
@@ -23,9 +26,11 @@ class Navbar extends Component {
               </a>
             </li>
             <li>
-              <a href="#">
-                <b>Add Drug</b>
-              </a>
+              <Link to="/AddDrug">
+                <a href="#">
+                  <b>Add Drug</b>
+                </a>
+              </Link>
             </li>
           </ul>
         </nav>

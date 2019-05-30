@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Adddrug.css";
 import axios from "axios";
 
 class Adddrug extends Component {

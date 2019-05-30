@@ -7,7 +7,7 @@
   border: 1px;
   border-color: black;
 }
-.card {
+.card1 {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.5s;
@@ -23,7 +23,7 @@
 }
 
 /* Add some padding inside the card container */
-.container {
+.container1 {
   padding: 2px 16px;
 }
 
