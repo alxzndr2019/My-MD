@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  background-color: #dddd;
+}
+
+#herotext {
+  font-size: 40px;
+  font-family: "Nunito", sans-serif;
+  text-align: relative;
+  color: darkgre;
+}
