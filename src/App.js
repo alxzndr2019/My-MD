@@ -6,14 +6,7 @@ import Druginfo from "./Druginfo";
 import AddDrug from "./components/AddDrug.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 class App extends Component {
-  state = {
-    selectedDrug: {}
-  };
-  selectedDrugData = selectedDrug => {
-    this.setState({
-      selectedDrug: selectedDrug
-    });
-  };
+  
   render() {
     return (
       <Router>

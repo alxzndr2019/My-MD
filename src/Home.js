@@ -397,6 +397,7 @@ class Home extends React.Component {
   //       });
   //     });
   // };
+  handleClick = () => {};
   onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
@@ -455,17 +456,32 @@ class Home extends React.Component {
           inputProps={inputProps}
         />
         <div>
-          <Link to="/Druginfo">
+          <Link
+            to={{
+              pathname: "/Druginfo",
+              state: {
+                selectedDrug: {
+                  name: this.state.selectedDrug.name,
+                  dosage: this.state.selectedDrug.dosage,
+                  price: this.state.selectedDrug.price,
+                  location: this.state.selectedDrug.location,
+                  drug_interaction: this.state.selectedDrug.drug_interaction,
+                  drug_image_url: this.state.selectedDrug.drug_image_url,
+                  id: this.state.selectedDrug.id
+                }
+              }
+            }}
+          >
             <Button
               variant="contained"
               color="primary"
               className={classes.button}
-              onClick
+              onClick={this.handleClick()}
             >
-              Go Nuts💊
+              Go Nuts<span>💊</span>
             </Button>
           </Link>
-          <div class="card1">
+          {/* <div class="card1">
             <div class="container1">
               <h4>
                 <b>Drug Information💊</b>
@@ -490,7 +506,7 @@ class Home extends React.Component {
                 <b>Drug Image</b>:{this.state.selectedDrug.drug_image_url}
               </p>
             </div>
-          </div>
+          </div> */}
           {/* <div>
             <Card className={classes.card}>
               <h6>Name:{this.state.selectedDrug.name}</h6>
