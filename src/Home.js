@@ -479,8 +479,7 @@ class Home extends React.Component {
       suggestions: []
     });
     this.setState({
-      errorchk: "",
-      path: ""
+      errorchk: ""
     });
   };
 
