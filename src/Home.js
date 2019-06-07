@@ -548,7 +548,7 @@ class Home extends React.Component {
               className={classes.button}
               // onClick={this.handleClick()}
             >
-              Go Nuts<span>💊</span>
+              Search<span>🔎🔎</span>
             </Button>
           </Link>
         </div>
