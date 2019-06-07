@@ -30,3 +30,38 @@ nav ul li a {
   font-family: "Nunito", sans-serif;
   text-decoration: none;
 }
+@media screen and (max-width: 400px) {
+  #logo {
+    color: white;
+    display: inline-block;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-family: "Nunito", sans-serif;
+    /* float: left; */
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+  }
+  nav {
+    padding: 5px;
+    background-color: #3d47cc;
+    height: 50px;
+    box-shadow: 0 5px 2px -2px rgba(0, 0, 0, 0.5);
+  }
+  nav ul {
+    list-style-type: none;
+    float: right;
+    padding: right 10px;
+  }
+  nav ul li {
+    display: inline;
+    color: white;
+  }
+  nav ul li a {
+    color: white;
+    padding: 6px;
+    font-size: 19px;
+    font-family: "Nunito", sans-serif;
+    text-decoration: none;
+  }
+}

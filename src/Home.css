@@ -93,3 +93,15 @@ body {
   color: red;
   font-family: "Nunito", sans-serif;
 }
+@media screen and (max-width: 400px) {
+  #herotext h1 {
+    font-size: 35px;
+    padding-top: 45px;
+    padding-bottom: 0px;
+  }
+  #herotext h6 {
+    font-size: 20px;
+    padding-top: 0px;
+    margin: 10px;
+  }
+}
