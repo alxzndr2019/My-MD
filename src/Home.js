@@ -447,8 +447,7 @@ class Home extends React.Component {
     });
     if (!drugs.includes(this.state.value)) {
       this.setState({
-        errorchk: "We don't have that drug ☹",
-        path: ""
+        errorchk: "We don't have that drug ☹"
       });
     }
   };
@@ -467,6 +466,15 @@ class Home extends React.Component {
         id: suggestion.id
       }
     });
+    if (suggestion === "") {
+      this.setState({
+        path: ""
+      });
+    } else {
+      this.setState({
+        path: "/Druginfo"
+      });
+    }
   };
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -542,18 +550,18 @@ class Home extends React.Component {
               }
             }}
           >
+            <div className="Results">
+              <h6>{this.state.errorchk}</h6>
+            </div>
             <Button
               variant="contained"
               color="primary"
               className={classes.button}
               // onClick={this.handleClick()}
             >
-              Search<span>🔎🔎</span>
+              Search<span>🔎</span>
             </Button>
           </Link>
-        </div>
-        <div className="Results">
-          <h6>{this.state.errorchk}</h6>
         </div>
       </div>
     );
