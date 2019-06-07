@@ -1,18 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
-import deburr from "lodash/deburr";
+import "./Home.css";
+import Druginfo from "./Druginfo.js";
 import Autosuggest from "react-autosuggest";
-import match from "autosuggest-highlight/match";
-import parse from "autosuggest-highlight/parse";
-import TextField from "@material-ui/core/TextField";
-import Paper from "@material-ui/core/Paper";
-import MenuItem from "@material-ui/core/MenuItem";
+import PropTypes, { element } from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 import { Link, Router } from "react-router-dom";
 import { blue } from "@material-ui/core/colors";
-import "./Home.css";
-import { isWidthDown } from "@material-ui/core/withWidth";
 const drugs = [
   {
     name: "Paracetamol capsules",
@@ -322,103 +320,30 @@ const drugs = [
   }
 ];
 
-function renderInputComponent(inputProps) {
-  const { classes, inputRef = () => {}, ref, ...other } = inputProps;
-
-  return (
-    <TextField
-      type="search"
-      variant="outlined"
-      className={classes.textField}
-      InputProps={{
-        inputRef: node => {
-          ref(node);
-          inputRef(node);
-        },
-        classes: {
-          input: classes.input
-        }
-      }}
-      {...other}
-    />
-  );
-}
-function renderSuggestion(suggestion, { query, isHighlighted }) {
-  const matches = match(suggestion.name, query);
-  const parts = parse(suggestion.name, matches);
-
-  return (
-    <MenuItem selected={isHighlighted} component="li">
-      <div>
-        {parts.map((part, index) =>
-          part.highlight ? (
-            <span key={String(index)} style={{ fontWeight: 500 }}>
-              {part.text}
-            </span>
-          ) : (
-            <strong key={String(index)} style={{ fontWeight: 300 }}>
-              {part.text}
-            </strong>
-          )
-        )}
-      </div>
-    </MenuItem>
-  );
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
+function escapeRegexCharacters(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function getSuggestions(value) {
-  const inputValue = deburr(value.trim()).toLowerCase();
-  const inputLength = inputValue.length;
-  let count = 0;
+  const escapedValue = escapeRegexCharacters(value.trim());
 
-  return inputLength === 0
-    ? []
-    : drugs.filter(drug => {
-        const keep =
-          count < 5 &&
-          drug.name.slice(0, inputLength).toLowerCase() === inputValue;
+  if (escapedValue === "") {
+    return [];
+  }
 
-        if (keep) {
-          count += 1;
-        }
+  const regex = new RegExp("^" + escapedValue, "i");
 
-        return keep;
-      });
+  return drugs.filter(drug => regex.test(drug.name));
 }
 
 function getSuggestionValue(suggestion) {
   return suggestion.name;
 }
-const styles = theme => ({
-  root: {
-    height: 250,
-    flexGrow: 1
-  },
-  container: {
-    position: "relative"
-  },
-  suggestionsContainer: {
-    width: 30
-  },
-  suggestionsContainerOpen: {
-    position: "absolute",
-    zIndex: 1,
-    marginTop: theme.spacing.unit,
-    left: 0,
-    right: 0
-  },
-  suggestion: {
-    display: "block"
-  },
-  suggestionsList: {
-    margin: 0,
-    padding: 0,
-    listStyleType: "none"
-  },
-  divider: {
-    height: theme.spacing.unit * 2
-  }
-});
+
+function renderSuggestion(suggestion) {
+  return <span>{suggestion.name}</span>;
+}
 
 class Home extends React.Component {
   constructor(props) {
@@ -436,21 +361,47 @@ class Home extends React.Component {
         drug_interaction: "",
         drug_image_url: "",
         id: ""
-      },
-      errorchk: "",
-      path: "/Druginfo"
+      }
     };
+    this.getDrug = this.getDrug.bind(this);
   }
+  getDrug(drug) {
+    this.setState({ selectedDrug: drug });
+  }
+  // componentWillMount() {
+  //   this.getData();
+  // }
+  // getData = e => {
+  //   fetch(`http://localhost:8080/api/druginfos`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       const { query } = this.state;
+  //       const filteredData = data.filter(element => {
+  //         // return element.name.toLowerCase().includes(query.toLowerCase());
+  //         if (
+  //           element.name.toLowerCase().slice(0, this.state.query.length) ===
+  //           this.state.query
+  //         ) {
+  //           return element;
+  //         } else {
+  //           element.name = "";
+  //           return element;
+  //         }
+  //       });
+  //       if (!this.state.query.length >= 1) {
+  //         filteredData = [];
+  //       }
+  //       this.setState({
+  //         // data,
+  //         filteredData
+  //       });
+  //     });
+  // };
+  handleClick = () => {};
   onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
     });
-    if (!drugs.includes(this.state.value)) {
-      this.setState({
-        errorchk: "We don't have that drug ☹",
-        path: ""
-      });
-    }
   };
   onSuggestionSelected = (
     event,
@@ -468,68 +419,46 @@ class Home extends React.Component {
       }
     });
   };
-  handleSuggestionsFetchRequested = ({ value }) => {
+  onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: getSuggestions(value)
     });
   };
 
-  handleSuggestionsClearRequested = () => {
+  onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: []
     });
-    this.setState({
-      errorchk: "",
-      path: ""
-    });
   };
-
+  on;
   render() {
     const { classes } = this.props;
     const { value, suggestions } = this.state;
-    const autosuggestProps = {
-      renderInputComponent,
-      suggestions: suggestions,
-      onSuggestionsFetchRequested: this.handleSuggestionsFetchRequested,
-      onSuggestionsClearRequested: this.handleSuggestionsClearRequested,
-      onSuggestionSelected: this.onSuggestionSelected,
-      getSuggestionValue,
-      renderSuggestion
+    const inputProps = {
+      placeholder: "Select Drugs",
+      value,
+      onChange: this.onChange
     };
 
     return (
-      <div className={classes.root}>
+      <div>
         <div id="herotext">
           <h1>Best Drug Search💊😊</h1>
           <h6>For Everyone...</h6>
         </div>
-
         <Autosuggest
-          {...autosuggestProps}
-          inputProps={{
-            classes,
-            placeholder: "Search for drugs",
-            value,
-            onChange: this.onChange
-          }}
-          theme={{
-            container: classes.container,
-            suggestionsContainerOpen: classes.suggestionsContainerOpen,
-            suggestionsList: classes.suggestionsList,
-            suggestion: classes.suggestion
-          }}
-          renderSuggestionsContainer={options => (
-            <Paper {...options.containerProps} square>
-              {options.children}
-            </Paper>
-          )}
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          onSuggestionSelected={this.onSuggestionSelected}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
         />
-
-        <div className={classes.divider} />
         <div>
           <Link
             to={{
-              pathname: this.state.path,
+              pathname: "/Druginfo",
               state: {
                 selectedDrug: {
                   name: this.state.selectedDrug.name,
@@ -547,22 +476,79 @@ class Home extends React.Component {
               variant="contained"
               color="primary"
               className={classes.button}
-              // onClick={this.handleClick()}
+              onClick={this.handleClick()}
             >
               Go Nuts<span>💊</span>
             </Button>
           </Link>
-        </div>
-        <div className="Results">
-          <h6>{this.state.errorchk}</h6>
+          {/* <div class="card1">
+            <div class="container1">
+              <h4>
+                <b>Drug Information💊</b>
+              </h4>
+              <p>
+                <b>Name</b>: {this.state.selectedDrug.name}
+              </p>
+              <p>
+                <b>Dosage</b>: {this.state.selectedDrug.dosage}
+              </p>
+              <p>
+                <b>Price</b>: {this.state.selectedDrug.price}
+              </p>
+              <p>
+                <b>Location</b>: {this.state.selectedDrug.location}
+              </p>
+              <p>
+                <b>Drug interaction</b>:
+                {this.state.selectedDrug.drug_interaction}
+              </p>
+              <p>
+                <b>Drug Image</b>:{this.state.selectedDrug.drug_image_url}
+              </p>
+            </div>
+          </div> */}
+          {/* <div>
+            <Card className={classes.card}>
+              <h6>Name:{this.state.selectedDrug.name}</h6>
+              <h6>Dosage:{this.state.selectedDrug.dosage}</h6>
+              <h6>Price:{this.state.selectedDrug.price}</h6>
+              <h6>Location:{this.state.selectedDrug.location}</h6>
+              <h6>
+                Drug interaction:{this.state.selectedDrug.drug_interaction}
+              </h6>
+              <h6>IMG:{this.state.selectedDrug.drug_image_url}</h6>
+              <h6>ID:{this.state.selectedDrug.id}</h6>
+            </Card>
+          </div> */}
         </div>
       </div>
     );
   }
 }
-
 Home.propTypes = {
   classes: PropTypes.object.isRequired
 };
-
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit
+  },
+  input: {
+    display: "none"
+  },
+  card: {
+    minWidth: 75,
+    color: blue
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)"
+  },
+  title: {
+    fontSize: 14
+  },
+  pos: {
+    marginBottom: 12
+  }
+});
 export default withStyles(styles)(Home);

@@ -9,43 +9,317 @@ import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { Link, Router } from "react-router-dom";
+import { blue } from "@material-ui/core/colors";
 import "./Home.css";
-// const suggestions = [
-//   { label: "Panadol" },
-//   { label: "Paracetamol" },
-//   { label: "Cortizon" },
-//   { label: "Tetracyclyine" },
-//   { label: "Doxycycline" },
-//   { label: "Aboniki balm" },
-//   { label: "Luxoderm" },
-//   { label: "Hydrocortizone" },
-//   { label: "Flagen" },
-//   { label: "Adderall" },
-//   { label: "Amoxicillin" },
-//   { label: "Viagra" },
-//   { label: "Oxycodone" },
-//   { label: "Prednicatol" },
-//   { label: "Tramadol" },
-//   { label: "Lyrica" },
-//   { label: "Metoprolol" },
-//   { label: "Meloxicam" },
-//   { label: "Losartan" },
-//   { label: "Lexapro" },
-//   { label: "Lisinoapril" },
-//   { label: "Ibuprofen" },
-//   { label: "Ativan" },
-//   { label: "Codeine" },
-//   { label: "Citalopram" },
-//   { label: "Metformin" },
-//   { label: "Metoprolol" },
-//   { label: "Zoloft" },
-//   { label: "Wellbutrin" },
-//   { label: "Trazodone" },
-//   { label: "Prednisone" },
-//   { label: "Cymbalta" },
-//   { label: "Cyclobenzaprine" },
-//   { label: "Ibuprofen" }
-// ];
+const drugs = [
+  {
+    name: "Paracetamol capsules",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 1
+  },
+  {
+    name: "Panadol",
+    dosage: "4 pills",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 2
+  },
+  {
+    name: "Methylated spirit",
+    dosage: "Apply once",
+    price: "200₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 3
+  },
+  {
+    name: "Hydrocortizon",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 4
+  },
+  {
+    name: "Aboniki Balm",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 5
+  },
+  {
+    name: "Tetracycline",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 6
+  },
+  {
+    name: "Doxycycline",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 7
+  },
+  {
+    name: "Tutolin",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 8
+  },
+  {
+    name: "Tylenol",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 9
+  },
+  {
+    name: "Abelcet",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 10
+  },
+  {
+    name: "Abilify",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 11
+  },
+  {
+    name: "Abraxane",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 12
+  },
+  {
+    name: "Abreva",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 13
+  },
+  {
+    name: "Absorica",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 14
+  },
+  {
+    name: "Abstral",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 15
+  },
+  {
+    name: "Acanya",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 16
+  },
+  {
+    name: "Accolate",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 17
+  },
+  {
+    name: "AccuNeb",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 18
+  },
+  {
+    name: "Accupril",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 19
+  },
+  {
+    name: "Bacitracin Injection",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 20
+  },
+  {
+    name: "Bacitracin Ointment",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 21
+  },
+  {
+    name: "Bacitracin Zin and Polymyxin B sulfate",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 22
+  },
+  {
+    name: "Baclofen",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 23
+  },
+  {
+    name: "Bactrim/Bactrim DS",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 24
+  },
+  {
+    name: "Bactroban",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 25
+  },
+  {
+    name: "Cabergoline",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 26
+  },
+  {
+    name: "Cabometyx",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 27
+  },
+  {
+    name: "Caduet",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 28
+  },
+  {
+    name: "Cafcit",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 29
+  },
+  {
+    name: "Dacogen",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 30
+  },
+  {
+    name: "Danazol",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 31
+  },
+  {
+    name: "Haldol",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 32
+  },
+  {
+    name: "Fabrazyme",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 33
+  },
+  {
+    name: "Famvir",
+    dosage: "One pill",
+    price: "100₦",
+    location: "Lagos",
+    drug_interaction: "Mouth",
+    drug_image_url: "",
+    id: 34
+  }
+];
 
 function renderInputComponent(inputProps) {
   const { classes, inputRef = () => {}, ref, ...other } = inputProps;
@@ -66,7 +340,7 @@ function renderInputComponent(inputProps) {
   );
 }
 function renderSuggestion(suggestion, { query, isHighlighted }) {
-  const matches = match(suggestion.name, this.state.single);
+  const matches = match(suggestion.name, query);
   const parts = parse(suggestion.name, matches);
 
   return (
@@ -95,10 +369,10 @@ function getSuggestions(value) {
 
   return inputLength === 0
     ? []
-    : this.state.data.map(suggestion => {
+    : drugs.filter(drug => {
         const keep =
           count < 5 &&
-          suggestion.name.slice(0, inputLength).toLowerCase() === inputValue;
+          drug.name.slice(0, inputLength).toLowerCase() === inputValue;
 
         if (keep) {
           count += 1;
@@ -140,79 +414,67 @@ const styles = theme => ({
 });
 
 class Home extends React.Component {
-  state = {
-    single: "",
-    suggestions: [],
-    data: [],
-    loading: true
-  };
-  // componentWillMount() {
-  //   const url = "http://localhost:8080/api/druginfos";
-  //   fetch(url, {
-  //     method: "GET"
-  //   })
-  //     .then(results => {
-  //       return results.json();
-  //     })
-  //     .then(data => {
-  //       this.setState({ result: data });
+  constructor(props) {
+    super(props);
 
-  //     });
-
-  // }
-  async componentDidMount() {
-    const url = "http://localhost:8080/api/druginfos";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ data: data });
-    console.log(data);
-    console.log(this.state.data);
+    this.state = {
+      value: "",
+      suggestions: [],
+      filteredData: [],
+      selectedDrug: {
+        name: "",
+        dosage: "",
+        price: "",
+        location: "",
+        drug_interaction: "",
+        drug_image_url: "",
+        id: ""
+      }
+    };
+    this.getDrug = this.getDrug.bind(this);
   }
+  handleChange = (event, { newValue, method }) => {
+    this.setState({
+      value: newValue
+    });
+  };
+  onSuggestionSelected = (
+    event,
+    { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }
+  ) => {
+    this.setState({
+      selectedDrug: {
+        name: suggestion.name,
+        dosage: suggestion.dosage,
+        price: suggestion.price,
+        location: suggestion.location,
+        drug_interaction: suggestion.drug_interaction,
+        drug_image_url: suggestion.drug_image_url,
+        id: suggestion.id
+      }
+    });
+  };
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      data: getSuggestions(value)
+      suggestions: getSuggestions(value)
     });
   };
 
   handleSuggestionsClearRequested = () => {
     this.setState({
-      data: []
+      suggestions: []
     });
   };
-
-  handleChange = name => (event, { newValue }) => {
-    this.setState({
-      [name]: newValue
-    });
-    console.log({ newValue });
-  };
-  // checkAccu = () => {
-  //   if (suggestions.filter(e => e.label === this.state.single).length > 0) {
-  //     this.setState({
-  //       typo: "Not in our data base"
-  //     });
-  //   }
-  // };
-  // handleSubmit = () => {
-  //   if (suggestions.filter(e => e.label === this.state.single).length > 0) {
-  //     alert(`${this.state.single} is in our database`);
-  //   } else {
-  //     alert(`${this.state.single} is not in our database`);
-  //   }
-  //   this.setState({
-  //     Results: this.state.single
-  //   });
-  //   console.log(this.state.single);
-  // };
 
   render() {
     const { classes } = this.props;
-
+    const { value, suggestions } = this.state;
     const autosuggestProps = {
       renderInputComponent,
-      suggestions: this.state.data,
+      suggestions: suggestions,
       onSuggestionsFetchRequested: this.handleSuggestionsFetchRequested,
       onSuggestionsClearRequested: this.handleSuggestionsClearRequested,
+      onSuggestionSelected: this.onSuggestionSelected,
       getSuggestionValue,
       renderSuggestion
     };
@@ -230,8 +492,8 @@ class Home extends React.Component {
           inputProps={{
             classes,
             placeholder: "Search for drugs",
-            value: this.state.single,
-            onChange: this.handleChange("single")
+            value,
+            onChange: this.handleChange("value")
           }}
           theme={{
             container: classes.container,
@@ -247,14 +509,31 @@ class Home extends React.Component {
         />
         <div className={classes.divider} />
         <div>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick={() => this.handleSubmit()}
+          <Link
+            to={{
+              pathname: "/Druginfo",
+              state: {
+                selectedDrug: {
+                  name: this.state.selectedDrug.name,
+                  dosage: this.state.selectedDrug.dosage,
+                  price: this.state.selectedDrug.price,
+                  location: this.state.selectedDrug.location,
+                  drug_interaction: this.state.selectedDrug.drug_interaction,
+                  drug_image_url: this.state.selectedDrug.drug_image_url,
+                  id: this.state.selectedDrug.id
+                }
+              }
+            }}
           >
-            Search
-          </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              onClick={this.handleClick()}
+            >
+              Go Nuts<span>💊</span>
+            </Button>
+          </Link>
         </div>
         {/* <div className="Results">
           <h1>Search Results</h1>
