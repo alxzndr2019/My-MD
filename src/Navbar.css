@@ -30,7 +30,7 @@ nav ul li a {
   font-family: "Nunito", sans-serif;
   text-decoration: none;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 375px) {
   #logo {
     color: white;
     display: inline-block;

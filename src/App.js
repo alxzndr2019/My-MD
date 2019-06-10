@@ -4,9 +4,8 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import Druginfo from "./Druginfo";
 import AddDrug from "./components/AddDrug.js";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 class App extends Component {
-  
   render() {
     return (
       <Router>
