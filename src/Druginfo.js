@@ -1,7 +1,5 @@
 import React from "react";
 import pill from "./pill.png";
-import Home from "./Home.js";
-import { Router } from "react-router-dom";
 import "./Druginfo.css";
 
 class Druginfo extends React.Component {
@@ -30,7 +28,9 @@ class Druginfo extends React.Component {
     } = this.props.location.state;
     return (
       <div>
-        <h1>Drug information💊💊💊</h1>
+        <h1>
+          Drug information<span role="img">💊💊💊</span>
+        </h1>
         <div class="card">
           <div class="container">
             <h3>Name of Drug</h3>
@@ -47,9 +47,7 @@ class Druginfo extends React.Component {
             </div>
 
             <h3>Side-Effects</h3>
-            <div className="sideeffect">
-              <li>{side_effects}</li>
-            </div>
+            <div className="sideeffect">{side_effects}</div>
             <div className="drugimage">
               <img src={pill} alt="drug goes here" />
             </div>

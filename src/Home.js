@@ -9,15 +9,13 @@ import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { Link, Router } from "react-router-dom";
-import { blue } from "@material-ui/core/colors";
+import { Link } from "react-router-dom";
 import "./Home.css";
-import { isWidthDown } from "@material-ui/core/withWidth";
 const drugs = [
   {
     name: "Paracetamol capsules",
     dosage: "One pill",
-    price: "100₦",
+    price: "100₦ per sachet",
     location: "CLOGMART PHARMACIES,ONIRU EXPRESSWAY LAGOS",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
@@ -40,8 +38,8 @@ const drugs = [
   {
     name: "Panadol",
     dosage: "4 pills",
-    price: "100₦",
-    location: "Lagos",
+    price: "100₦ per sachet",
+    location: "Alpha Pharmacy & Stores Ltd, 2B Alabi ST Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -62,9 +60,9 @@ const drugs = [
   },
   {
     name: "Methylated spirit",
-    dosage: "Apply once",
-    price: "200₦",
-    location: "Lagos",
+    dosage: "Apply on Injury",
+    price: "250₦",
+    location: "Teem Care Pharmacy, 46 Coker Rd, Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -85,9 +83,9 @@ const drugs = [
   },
   {
     name: "Hydrocortizon",
-    dosage: "One pill",
+    dosage: "Apply on affected area before bed",
     price: "100₦",
-    location: "Lagos",
+    location: "Boluke Pharmacy Ikeja, Obafemi Awolowo wayLagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -108,9 +106,9 @@ const drugs = [
   },
   {
     name: "Aboniki Balm",
-    dosage: "One pill",
-    price: "100₦",
-    location: "Lagos",
+    dosage: "Apply and Massage",
+    price: "150₦",
+    location: "HealthPlus Pharmacy, Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -131,9 +129,9 @@ const drugs = [
   },
   {
     name: "Tetracycline",
-    dosage: "One pill",
-    price: "100₦",
-    location: "Lagos",
+    dosage: "One pill Morning and Night",
+    price: "100₦ per sachet",
+    location: "Bernados Pharmacy,Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -154,9 +152,9 @@ const drugs = [
   },
   {
     name: "Doxycycline",
-    dosage: "One pill",
-    price: "100₦",
-    location: "Lagos",
+    dosage: "One pill Morning abd Evening",
+    price: "100₦ per sachet",
+    location: "Medplus Pharmacy,Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -177,9 +175,9 @@ const drugs = [
   },
   {
     name: "Tutolin",
-    dosage: "One pill",
-    price: "100₦",
-    location: "Lagos",
+    dosage: "1ml morning,afternoon and evening",
+    price: "300₦",
+    location: "Boluke Pharmacy Ikeja ,Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -200,9 +198,9 @@ const drugs = [
   },
   {
     name: "Tylenol",
-    dosage: "One pill",
-    price: "100₦",
-    location: "Lagos",
+    dosage: "One pill moring, afternoon and evening",
+    price: "100₦ per sachet",
+    location: "Asset Pharmacy Ikeja, Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -223,18 +221,31 @@ const drugs = [
   },
   {
     name: "Abelcet",
-    dosage: "One pill",
-    price: "100₦",
-    location: "Lagos",
+    dosage: "One pill morning and evening",
+    price: "100₦ p/s",
+    location: "Tonyson Pharmacy and Store, Lagos",
     drug_interaction: "Mouth",
     drug_image_url: "",
+    side_effects: {
+      rare: [
+        "Bloody or black, tarry stools",
+        "bloody or cloudy urine",
+        "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+        "pain in the lower back and/or side (severe and/or sharp)",
+        "pinpoint red spots on the skin",
+        "skin rash, hives, or itching",
+        "sore throat (not present before treatment and not caused by the condition being treated)",
+        "sores, ulcers, or white spots on the lips or in the mouth",
+        "sudden decrease in the amount of urine"
+      ]
+    },
     id: 10
   },
   {
     name: "Abilify",
-    dosage: "One pill",
-    price: "100₦",
-    location: "Lagos",
+    dosage: "One pill morning only",
+    price: "100₦ per sachet",
+    location: "A.Pharmacy, Lagos",
     drug_interaction:
       "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
     drug_image_url: "",
@@ -255,7 +266,7 @@ const drugs = [
   },
   {
     name: "Abraxane",
-    dosage: "One pill",
+    dosage: "Apply on affected area before bed",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -278,7 +289,7 @@ const drugs = [
   },
   {
     name: "Abreva",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -300,7 +311,7 @@ const drugs = [
     id: 13
   },
   {
-    name: "Absorica",
+    name: "Bandage",
     dosage: "One pill",
     price: "100₦",
     location: "Lagos",
@@ -324,7 +335,7 @@ const drugs = [
   },
   {
     name: "Abstral",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -370,7 +381,7 @@ const drugs = [
   },
   {
     name: "Accolate",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -416,7 +427,7 @@ const drugs = [
   },
   {
     name: "Accupril",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -439,7 +450,7 @@ const drugs = [
   },
   {
     name: "Bacitracin Injection",
-    dosage: "One pill",
+    dosage: "Inject 2ml into the bloodstream",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -462,7 +473,7 @@ const drugs = [
   },
   {
     name: "Bacitracin Ointment",
-    dosage: "One pill",
+    dosage: "Apply on affected area before bed",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -508,7 +519,7 @@ const drugs = [
   },
   {
     name: "Baclofen",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -531,7 +542,7 @@ const drugs = [
   },
   {
     name: "Bactrim/Bactrim DS",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -554,7 +565,7 @@ const drugs = [
   },
   {
     name: "Bactroban",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -577,7 +588,7 @@ const drugs = [
   },
   {
     name: "Cabergoline",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -600,7 +611,7 @@ const drugs = [
   },
   {
     name: "Cabometyx",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -623,7 +634,7 @@ const drugs = [
   },
   {
     name: "Caduet",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -646,7 +657,7 @@ const drugs = [
   },
   {
     name: "Cafcit",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -669,7 +680,7 @@ const drugs = [
   },
   {
     name: "Dacogen",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -692,7 +703,7 @@ const drugs = [
   },
   {
     name: "Danazol",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -715,7 +726,7 @@ const drugs = [
   },
   {
     name: "Haldol",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -738,7 +749,7 @@ const drugs = [
   },
   {
     name: "Fabrazyme",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -761,7 +772,7 @@ const drugs = [
   },
   {
     name: "Famvir",
-    dosage: "One pill",
+    dosage: "One pill moring, afternoon and evening",
     price: "100₦",
     location: "Lagos",
     drug_interaction:
@@ -904,10 +915,794 @@ class Home extends React.Component {
         },
         testimonials: {}
       },
+      alldrugs: [
+        {
+          name: "Paracetamol capsules",
+          dosage: "One pill",
+          price: "100₦ per sachet",
+          location: "CLOGMART PHARMACIES,ONIRU EXPRESSWAY LAGOS",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 1
+        },
+        {
+          name: "Panadol",
+          dosage: "4 pills",
+          price: "100₦ per sachet",
+          location: "Alpha Pharmacy & Stores Ltd, 2B Alabi ST Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 2
+        },
+        {
+          name: "Methylated spirit",
+          dosage: "Apply on Injury",
+          price: "250₦",
+          location: "Teem Care Pharmacy, 46 Coker Rd, Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 3
+        },
+        {
+          name: "Hydrocortizon",
+          dosage: "Apply on affected area before bed",
+          price: "100₦",
+          location: "Boluke Pharmacy Ikeja, Obafemi Awolowo wayLagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 4
+        },
+        {
+          name: "Aboniki Balm",
+          dosage: "Apply and Massage",
+          price: "150₦",
+          location: "HealthPlus Pharmacy, Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 5
+        },
+        {
+          name: "Tetracycline",
+          dosage: "One pill Morning and Night",
+          price: "100₦ per sachet",
+          location: "Bernados Pharmacy,Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 6
+        },
+        {
+          name: "Doxycycline",
+          dosage: "One pill Morning abd Evening",
+          price: "100₦ per sachet",
+          location: "Medplus Pharmacy,Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 7
+        },
+        {
+          name: "Tutolin",
+          dosage: "1ml morning,afternoon and evening",
+          price: "300₦",
+          location: "Boluke Pharmacy Ikeja ,Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 8
+        },
+        {
+          name: "Tylenol",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦ per sachet",
+          location: "Asset Pharmacy Ikeja, Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 9
+        },
+        {
+          name: "Abelcet",
+          dosage: "One pill morning and evening",
+          price: "100₦ p/s",
+          location: "Tonyson Pharmacy and Store, Lagos",
+          drug_interaction: "Mouth",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 10
+        },
+        {
+          name: "Abilify",
+          dosage: "One pill morning only",
+          price: "100₦ per sachet",
+          location: "A.Pharmacy, Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 11
+        },
+        {
+          name: "Abraxane",
+          dosage: "Apply on affected area before bed",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 12
+        },
+        {
+          name: "Abreva",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 13
+        },
+        {
+          name: "Bandage",
+          dosage: "One pill",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 14
+        },
+        {
+          name: "Abstral",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 15
+        },
+        {
+          name: "Acanya",
+          dosage: "One pill",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 16
+        },
+        {
+          name: "Accolate",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 17
+        },
+        {
+          name: "AccuNeb",
+          dosage: "One pill",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 18
+        },
+        {
+          name: "Accupril",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 19
+        },
+        {
+          name: "Bacitracin Injection",
+          dosage: "Inject 2ml into the bloodstream",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 20
+        },
+        {
+          name: "Bacitracin Ointment",
+          dosage: "Apply on affected area before bed",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 21
+        },
+        {
+          name: "Bacitracin Zin and Polymyxin B sulfate",
+          dosage: "One pill",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 22
+        },
+        {
+          name: "Baclofen",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 23
+        },
+        {
+          name: "Bactrim/Bactrim DS",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 24
+        },
+        {
+          name: "Bactroban",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 25
+        },
+        {
+          name: "Cabergoline",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 26
+        },
+        {
+          name: "Cabometyx",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 27
+        },
+        {
+          name: "Caduet",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 28
+        },
+        {
+          name: "Cafcit",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 29
+        },
+        {
+          name: "Dacogen",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 30
+        },
+        {
+          name: "Danazol",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 31
+        },
+        {
+          name: "Haldol",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 32
+        },
+        {
+          name: "Fabrazyme",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 33
+        },
+        {
+          name: "Famvir",
+          dosage: "One pill moring, afternoon and evening",
+          price: "100₦",
+          location: "Lagos",
+          drug_interaction:
+            "Ecotrin, Acetylsalicylic Acid, Aspir 81, Bayer Aspirin, Aspirin Low Strength, Bufferin, Arthritis Pain, Easprin, Ascriptin, Fasprin, Low Dose ASA, Buffered Aspirin, Aspir-Low, Durlaza, Ascriptin Enteric, Acuprin 81, Halfprin, Aspergum, Empirin, Bayer Children's Aspirin, Aspirin Lite Coat, Aspi-Cor, Aspirtab, Ecotrin Adult Low Strength, Ecotrin Maximum Strength, Entercote, Minitabs, St. Joseph Aspirin, Ascriptin Maximum Strength, Arthritis Foundation Pain Reliever, Bayer Aspirin with Heart Advantage, Bufferin Low Dose, Medi-Seltzer, Sloprin, St. Joseph 81 mg Chewable Aspirin, ZORprin, Aspiritab, Bayer Aspirin Extra Strength Plus, Buffex, Extra Strength Bayer, Genacote, Gennin-FC, Genprin, Litecoat Aspirin, Tri-Buffered Aspirin, Entaprin, Bufferin Arthritis Strength, Bufferin Extra Strength, Therapy Bayer, Stanback Analgesic, Norwich Aspirin, St. Joseph 81 mg Aspirin Enteric Safety-Coated, Ecpirin, Bayer Women's Aspirin With Calcium, Zero-Order Release, YSP Aspirin, Miniprin, Bayer Aspirin Regimen, Migralex, Heartline, Bayer Advanced Aspirin, Buffasal",
+          drug_image_url: "",
+          side_effects: {
+            rare: [
+              "Bloody or black, tarry stools",
+              "bloody or cloudy urine",
+              "fever with or without chills (not present before treatment and not caused by the condition being treated)",
+              "pain in the lower back and/or side (severe and/or sharp)",
+              "pinpoint red spots on the skin",
+              "skin rash, hives, or itching",
+              "sore throat (not present before treatment and not caused by the condition being treated)",
+              "sores, ulcers, or white spots on the lips or in the mouth",
+              "sudden decrease in the amount of urine"
+            ]
+          },
+          id: 34
+        }
+      ],
       errorchk: "",
       path: "/Druginfo"
     };
   }
+  
   onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
@@ -917,6 +1712,7 @@ class Home extends React.Component {
         errorchk: "We don't have that drug ☹"
       });
     }
+    console.log(this.state.alldrugs)
   };
   onSuggestionSelected = (
     event,
@@ -975,7 +1771,9 @@ class Home extends React.Component {
     return (
       <div className={classes.root}>
         <div id="herotext">
-          <h1>Best Drug Search💊😊</h1>
+          <h1>
+            Best Drug Search<span role="img">💊😊</span>
+          </h1>
           <h6>For Everyone...</h6>
         </div>
 
@@ -1028,7 +1826,7 @@ class Home extends React.Component {
               className={classes.button}
               // onClick={this.handleClick()}
             >
-              Search<span>🔎</span>
+              Search<span role="img">🔎</span>
             </Button>
           </Link>
         </div>

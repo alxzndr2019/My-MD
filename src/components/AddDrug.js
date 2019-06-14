@@ -1,5 +1,26 @@
 import React, { Component } from "react";
 import axios from "axios";
+import clsx from "clsx";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
+  },
+  dense: {
+    marginTop: theme.spacing(2)
+  },
+  menu: {
+    width: 200
+  }
+}));
 
 class Adddrug extends Component {
   constructor() {
@@ -15,6 +36,7 @@ class Adddrug extends Component {
       message: ""
     };
   }
+
   dataChange(ev) {
     this.setState({
       [ev.target.name]: ev.target.value
@@ -69,91 +91,101 @@ class Adddrug extends Component {
   }
 
   render() {
+    const classes = useStyles();
     return (
-      <div class="form">
-        <form onSubmit={this.postData.bind(this)}>
-          <h1>Drug Infomation</h1>
+      <form className={classes.container} noValidate autoComplete="off">
+        {/* <form onSubmit={this.postData.bind(this)}> */}
+        <h1>Drug Infomation</h1>
 
-          <input
-            name="name"
-            class="f"
-            type="text"
-            id="input"
-            placeholder="Drug Name"
-            onChange={this.dataChange.bind(this)}
-          />
-          <br />
+        {/* <input
+          name="name"
+          class="f"
+          type="text"
+          id="input"
+          placeholder="Drug Name"
+          onChange={this.dataChange.bind(this)}
+        /> */}
+        <TextField
+          id="outlined-name"
+          label="Name"
+          className={classes.textField}
+          // value={values.name}
+          // onChange={handleChange('name')}
+          margin="normal"
+          variant="outlined"
+        />
+        <br />
 
-          <br />
+        <br />
 
-          <input
-            name="dosage"
-            class="f"
-            type="text"
-            id="dose"
-            placeholder="Dosage"
-            onChange={this.dataChange.bind(this)}
-          />
-          <br />
+        <input
+          name="dosage"
+          class="f"
+          type="text"
+          id="dose"
+          placeholder="Dosage"
+          onChange={this.dataChange.bind(this)}
+        />
+        <br />
 
-          <br />
+        <br />
 
-          <input
-            name="price"
-            class="f"
-            type="text"
-            id="input"
-            placeholder="Price"
-            onChange={this.dataChange.bind(this)}
-          />
-          <br />
+        <input
+          name="price"
+          class="f"
+          type="text"
+          id="input"
+          placeholder="Price"
+          onChange={this.dataChange.bind(this)}
+        />
+        <br />
 
-          <br />
+        <br />
 
-          <input
-            name="location"
-            class="f"
-            type="text"
-            id="input"
-            placeholder="Location"
-            onChange={this.dataChange.bind(this)}
-          />
-          <br />
+        <input
+          name="location"
+          class="f"
+          type="text"
+          id="input"
+          placeholder="Location"
+          onChange={this.dataChange.bind(this)}
+        />
+        <br />
 
-          <br />
+        <br />
 
-          <input
-            name="drug_interaction"
-            class="f"
-            type="text"
-            id="interact"
-            placeholder="Drug Interaction"
-            onChange={this.dataChange.bind(this)}
-          />
-          <br />
+        <input
+          name="drug_interaction"
+          class="f"
+          type="text"
+          id="interact"
+          placeholder="Drug Interaction"
+          onChange={this.dataChange.bind(this)}
+        />
+        <br />
 
-          <br />
-          <input
-            name="drug_image_url"
-            class="f"
-            type="text"
-            id="input"
-            placeholder="Drug Image url"
-            onChange={this.dataChange.bind(this)}
-          />
-          <br />
+        <br />
+        <input
+          name="drug_image_url"
+          class="f"
+          type="text"
+          id="input"
+          placeholder="Drug Image url"
+          onChange={this.dataChange.bind(this)}
+        />
+        <br />
 
-          <br />
+        <br />
 
-          <input
-            type="submit"
-            className="add-btn"
-            value="Save and Continue"
-            onClick={this.routeChange}
-          />
-        </form>
-        {this.loadOrShowMsg()}
-      </div>
+        <input
+          type="submit"
+          className="add-btn"
+          value="Save and Continue"
+          onClick={this.routeChange}
+        />
+      </form>
+
+      // {this.loadOrShowMsg()}
     );
   }
 }
